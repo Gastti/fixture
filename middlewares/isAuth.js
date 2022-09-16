@@ -8,7 +8,7 @@ module.exports = {
         if (!token) {
             return res.status(403).json({
                 ok: false,
-                msg: 'Invalid token.'
+                msg: 'No token.'
             })
         }
 

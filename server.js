@@ -12,7 +12,8 @@ class Server {
             users: '/users',
             tournaments: '/tournaments',
             fixture: '/fixture',
-            teams: '/teams'
+            teams: '/teams',
+            group: '/group'
         }
 
         this.middlewares();
@@ -26,12 +27,13 @@ class Server {
     }
 
     routes() {
-            this.app.use(this.paths.auth,            require('./routes/auth')),
-            this.app.use(this.paths.index,           require('./routes/index')),
-            this.app.use(this.paths.users,           require('./routes/users')),
-            this.app.use(this.paths.tournaments,     require('./routes/tournaments')),
-            this.app.use(this.paths.fixture,         require('./routes/fixture')),
-            this.app.use(this.paths.teams,           require('./routes/teams'))
+        this.app.use(this.paths.auth, require('./routes/auth')),
+            this.app.use(this.paths.index, require('./routes/index')),
+            this.app.use(this.paths.users, require('./routes/users')),
+            this.app.use(this.paths.tournaments, require('./routes/tournaments')),
+            this.app.use(this.paths.fixture, require('./routes/fixture')),
+            this.app.use(this.paths.teams, require('./routes/teams')),
+            this.app.use(this.paths.group, require('./routes/groups'))
     }
 
     listen() {

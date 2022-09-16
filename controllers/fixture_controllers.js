@@ -1,9 +1,9 @@
 const db = require('../models/index');
-const { startQatar } = require('./tournament_controllers');
-const { startTeams } = require('./team_controllers');
+const TournamentControllers = require('./tournament_controllers');
 const Fixture = db.Fixture;
 const Tournament = db.Tournament;
 const Group = db.Group;
+const Team = db.Team;
 
 class FixtureControllers {
 
@@ -21,7 +21,15 @@ class FixtureControllers {
             const fixture = await Fixture.findByPk(id, {
                 include: {
                     model: Tournament,
-                    as: 'tournament'
+                    as: 'tournament',
+                    include: [{
+                        model: Group,
+                        as: 'groups',
+                        // include: [{
+                        //     model: Team,
+                        //     as: 'teams'
+                        // }]
+                    }]
                 }
             })
             if (!fixture) {
@@ -38,7 +46,8 @@ class FixtureControllers {
             console.log(error);
             res.status(500).json({
                 ok: false,
-                msg: 'Server side error.'
+                msg: 'Server side error.',
+                error: error
             });
         }
     }
@@ -54,8 +63,8 @@ class FixtureControllers {
                 ownerId
             })
 
-            await startQatar(fixture.id)
-            
+            await TournamentControllers.startQatar(fixture.id)
+
             res.status(200).json({
                 ok: true,
                 data: fixture

@@ -1,8 +1,6 @@
 const db = require('../models/index');
-const { startGroups } = require('./group_controllers');
-const { startTeams } = require('./team_controllers');
+const GroupControllers = require('./group_controllers');
 const Tournament = db.Tournament;
-const Fixture = db.Fixture;
 const Group = db.Group;
 
 class TournamentControllers {
@@ -42,7 +40,7 @@ class TournamentControllers {
             fixtureId
         })
 
-        startGroups(tournament.id);
+        await GroupControllers.start(tournament.id);
     }
 
 }

@@ -18,22 +18,22 @@ const teams = [
     {
         a: [
             {
-                name: 'Portugal',
+                name: 'Qatar',
                 icon: 'https://static.wikia.nocookie.net/politicsandwar/images/5/57/Placeholder_Flag.png',
                 location: '',
             },
             {
-                name: 'Ghana',
+                name: 'Ecuador',
                 icon: 'https://static.wikia.nocookie.net/politicsandwar/images/5/57/Placeholder_Flag.png',
                 location: '',
             },
             {
-                name: 'Uruguay',
+                name: 'Senegal',
                 icon: 'https://static.wikia.nocookie.net/politicsandwar/images/5/57/Placeholder_Flag.png',
                 location: '',
             },
             {
-                name: 'Korea Republic',
+                name: 'Netherlands',
                 icon: 'https://static.wikia.nocookie.net/politicsandwar/images/5/57/Placeholder_Flag.png',
                 location: '',
             }

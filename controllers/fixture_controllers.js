@@ -25,19 +25,21 @@ class FixtureControllers {
                     include: [{
                         model: Group,
                         as: 'groups',
-                        // include: [{
-                        //     model: Team,
-                        //     as: 'teams'
-                        // }]
+                        include: [{
+                            model: Team,
+                            as: 'teams'
+                        }]
                     }]
                 }
             })
+
             if (!fixture) {
                 return res.status(404).json({
                     ok: false,
                     msg: 'Empty.'
                 });
             }
+
             res.status(200).json({
                 ok: true,
                 data: fixture
